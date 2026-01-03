@@ -32,6 +32,17 @@ android {
     }
 }
 
+publishing {
+    publications {
+        create<MavenPublication>("release") {
+            afterEvaluate {
+                from(components["release"])
+            }
+        }
+    }
+}
+
+
 dependencies {
     compileOnly(libs.androidx.core.ktx)
     compileOnly(libs.androidx.appcompat)
